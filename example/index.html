@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Rotator</title>
+  <link rel="stylesheet" href="../src/styles.css">
+
+</head>
+<body>
+  <h1 class="text-rotator" data-options="Hello|Hola|Bonjour|Hallo|Ciao|Olá|Привет|こんにちは|你好|안녕하세요"></h1>
+  <!-- Project Description  -->
+  <div class="project-description">
+    <h2>About the Project</h2>
+    <p>This project is a text rotator that displays random phrases or options in a fading animation. It allows you to create dynamic and engaging content on your website.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Supports multiple text rotators on the same page.</li>
+      <li>Options can be customized and separated by the "|" character.</li>
+      <li>Randomization of options can be enabled or disabled.</li>
+      <li>Two animation modes: "fadeoutandreplace" and "fadeoutthenreplace".</li>
+      <li>Customizable, randomizable sleep times between options.</li>
+    </ul>
+
+    <h2>Usage</h2>
+    <p>To use the text rotator, simply add the "text-rotator" class to any HTML element and specify the options using the "data-options" attribute. You can also customize the animation mode, randomization, and sleep times using the respective data attributes.</p>
+
+    <h2>Example</h2>
+    <pre>
+      &lt;span class="text-rotator"
+        data-options="Option 1|Option 2|Option 3"   /* Required. Specifies the options to be rotated. Options are separated by "|".                     */
+        data-random="true"                          /* Optional. If set to "true", options will be displayed in a random order. Default is "false".     */
+        data-mode="fadeoutandreplace"               /* Optional. Specifies the transition mode between options. Default is "fadeoutandreplace". Other option is "fadeoutthenreplace"  */
+        data-rand-max-sleep="500"                   /* Optional. Specifies the maximum random delay in ms between option transitions. Default is "500". */
+        data-baseline-sleep="2000"&gt;&lt;/span&gt;          /* Optional. Specifies the baseline delay in ms between option transitions. Default is "2000".      */
+        </pre>
+    <h2>Implementation</h2>
+    <p>To implement the text rotator, include the necessary CSS and JavaScript files, as shown in the provided code. Then, initialize the text rotator by calling the "QubasTextRotatorTurbo" constructor for
+      each element with the "text-rotator" class.</p>
+  </div>
+
+
+  <style>
+    .yellow {
+      color: #f1c40f;
+      font-weight: 900;
+    }
+  </style>
+  <div style="height: 100px; padding: 20px; font-size: 30px; background-color: lightcoral;">
+    I like to eat
+    <span id="food" class="text-rotator"
+          data-options="beans|a large cucumber salad|pea|avocado toast|beets|potatoes"
+          data-random="true"
+          data-mode="fadeoutandreplace"
+          data-rand-max-sleep="500"
+          data-baseline-sleep="2000"></span> and play with
+    <span id="device" class="text-rotator yellow"
+          data-options="xbox|nintendo switch|a basketball"
+          data-random="false"
+          data-mode="fadeoutthenreplace"
+          data-rand-max-sleep="0"
+          data-baseline-sleep="2500"></span> and I own a
+    <span id="animals"
+          class="text-rotator"
+          data-options="pet|dog|cat|parakeet"></span>.
+</div>
+
+  <script src="../src/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var elements = document.getElementsByClassName("text-rotator");
+      for (var i = 0; i < elements.length; i++) {
+        console.log(elements[i].id);
+        new QubasTextRotatorTurbo(elements[i]);
+      }
+    });
+  </script>
+</body>
+</html>

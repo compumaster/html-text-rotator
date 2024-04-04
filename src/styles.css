@@ -1,0 +1,12 @@
+
+.text-rotator {
+  white-space: nowrap;
+  opacity: 1;
+  /* the transition durations should match the animation durations */
+  transition: opacity 0.5s ease, width 0.5s ease-in-out;
+  display: inline-block;
+}
+
+.text-rotator.fade-out {
+  opacity: 0;
+}
